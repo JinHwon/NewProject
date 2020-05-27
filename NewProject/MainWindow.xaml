@@ -12,7 +12,7 @@
         xmlns:dxwuin="http://schemas.devexpress.com/winfx/2008/xaml/windowsui/navigation"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
         xmlns:base="clr-namespace:BasicAssembly;assembly=BasicAssembly"
-        Title="MainWindow" Width="1200" Height="900" WindowState="Maximized" Loaded="OnLoad">
+        Title="MainWindow" Width="1200" Height="900" WindowState="Maximized" Loaded="OnLoad" KeyDown="OnKeyDown">
     <dxb:BarManager>
         <DockPanel>
             <dxr:RibbonControl DockPanel.Dock="Top" RibbonStyle="Office2010" ToolbarShowMode="Hide">

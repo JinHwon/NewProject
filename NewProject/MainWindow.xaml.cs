@@ -228,39 +228,71 @@ namespace NewProject
 
         }
 
+        private BasePage GetActivePage()
+        {
+            BasePage basePage = null;
+
+            try
+            {
+                basePage = (MainDockManager.DockController.ActiveItem as DocumentPanel)?.Control as BasePage;
+
+                if (basePage == null && MainDocGroup.SelectedItem != null)
+                {
+                    basePage = (MainDocGroup.SelectedItem as DocumentPanel).Control as BasePage;
+                }
+            }
+            catch (Exception ex)
+            {
+                basePage = null;
+                //message += ex.Message.ToString();
+            }
+
+            return basePage;
+        }
+
         private void ExecuteNew(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
-
+            GetActivePage()?.DoNew();
         }
 
         private void ExecuteSelect(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
-
+            GetActivePage()?.DoSelect();
         }
 
         private void ExecuteSave(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
-
+            GetActivePage()?.DoSave();
         }
 
         private void ExecuteDelete(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
-
+            GetActivePage()?.DoDelete();
         }
 
         private void ExecuteExcelDownload(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
-
+            GetActivePage()?.DoDownloadExcel();
         }
 
         private void ExecutePdfDownload(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
-
+            GetActivePage()?.DoDownloadPDF();
         }
 
-        private void ExecuteReviewMessage(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        private void ExecutePrint(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
         {
+            GetActivePage()?.DoPrint();
+        }
 
+        private void ExecutePreview(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            GetActivePage()?.DoPreview();
+        }
+
+        private void ExecuteFixedRows(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
+        {
+            GetActivePage()?.DoFixedRows();
         }
 
         private void ExecuteClose(object sender, DevExpress.Xpf.Bars.ItemClickEventArgs e)
@@ -397,6 +429,45 @@ namespace NewProject
         private void MainDocGroup_SelectedItemChanged(object sender, DevExpress.Xpf.Docking.Base.SelectedItemChangedEventArgs e)
         {
 
+        }
+
+        private void OnKeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.N && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                // 새로추가
+                GetActivePage()?.DoNew();
+            }
+            else if (e.Key == Key.R && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                // 조회하기
+                GetActivePage()?.DoSelect();
+            }
+            else if (e.Key == Key.S && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                // 저장하기
+                GetActivePage()?.DoSave();
+            }
+            else if (e.Key == Key.D && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                // 삭제하기
+                GetActivePage()?.DoDelete();
+            }
+            else if (e.Key == Key.E && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                // Excel 다운로드
+                GetActivePage()?.DoDownloadExcel();
+            }
+            else if (e.Key == Key.F && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                // Pdf 다운로드
+                GetActivePage()?.DoDownloadPDF();
+            }
+            else if (e.Key == Key.L && Keyboard.Modifiers == ModifierKeys.Control)
+            {
+                // 종료하기
+                ExecuteClose(null, null);
+            }
         }
     }
 }
