@@ -1,0 +1,95 @@
+﻿<Window x:Class="NewProject.WinSignUp"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:dxlc="http://schemas.devexpress.com/winfx/2008/xaml/layoutcontrol"
+             xmlns:local="clr-namespace:NewProject"
+             mc:Ignorable="d" 
+             Title="WinLogin" Height="550" Width="510" ShowInTaskbar="False" WindowStyle="None" MouseLeftButtonDown="MouseDrag" WindowStartupLocation="CenterScreen" Loaded="OnLoad">
+    <Grid Margin="5">
+        <dxlc:GroupBox Header="■ 회원가입">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0*"/>
+                    <ColumnDefinition Width="30"/>
+                    <ColumnDefinition Width="100"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="150"/>
+                    <ColumnDefinition Width="0*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Text="아이디" Grid.Row="1" Grid.Column="2" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBox x:Name="tbxUserID" Grid.Row="1" Grid.Column="3" Width="145" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" TextChanged="tbxUserID_TextChanged"/>
+                <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="135" Click="Button_Click" Grid.Row="1" Grid.Column="4">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="White" Offset="0.35"/>
+                            <GradientStop Color="#FFE0E0E0" Offset="0.917"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Images/ActiveRents_32x32.png" Width="20" Height="20"/>
+                        <TextBlock Text="중복확인" FontSize="20" VerticalAlignment="Center" />
+                    </StackPanel>
+                </Button>
+                <TextBlock Text="패스워드" Grid.Row="2" Grid.Column="2" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <PasswordBox x:Name="tbxPassword" Grid.Row="2" Grid.Column="3" Width="145" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBlock Text="확인" Grid.Row="3" Grid.Column="2" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <PasswordBox x:Name="tbxPasswordCheck" Grid.Row="3" Grid.Column="3" Width="145" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" LostFocus="tbxPasswordCheck_LostFocus"/>
+                <TextBlock x:Name="tbCheck" Text="  " Grid.Row="3" Grid.Column="4" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+                <TextBlock Text="게임ID" Grid.Row="4" Grid.Column="2" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBox x:Name="tbxUserT2" Grid.Row="4" Grid.Column="3" Width="145" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" TextChanged="tbxUserT2_TextChanged"/>
+                <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="135" Click="Button02_Click" Grid.Row="4" Grid.Column="4">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="White" Offset="0.35"/>
+                            <GradientStop Color="#FFE0E0E0" Offset="0.917"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Images/ActiveRents_32x32.png" Width="20" Height="20"/>
+                        <TextBlock Text="중복확인" FontSize="20" VerticalAlignment="Center" />
+                    </StackPanel>
+                </Button>
+                <TextBlock Text="이름" Grid.Row="5" Grid.Column="2" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBox x:Name="tbxUserName" Grid.Row="5" Grid.Column="3" Width="145" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBlock Text="종족" Grid.Row="6" Grid.Column="2" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <ComboBox x:Name="cboTribe" Grid.Row="6" Grid.Column="3" Width="145" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBlock Text="이메일" Grid.Row="7" Grid.Column="2" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBox x:Name="tbxUserEmail" Grid.Row="7" Grid.Column="3" Width="145" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBlock Text="연락처" Grid.Row="8" Grid.Column="2" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBox x:Name="tbxUserMobile" Grid.Row="8" Grid.Column="3" Width="145" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBlock Text=" - 제외" Grid.Row="8" Grid.Column="4" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+                <Button Content="회원가입" Grid.Row="9" Grid.Column="3" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Click="Button_Click_1"/>
+                <Button HorizontalAlignment="Center" VerticalAlignment="Center" Width="115" Grid.Row="9" Grid.Column="4" Click="Cancle_Click">
+                    <Button.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="White" Offset="0.35"/>
+                            <GradientStop Color="#FFE0E0E0" Offset="0.917"/>
+                        </LinearGradientBrush>
+                    </Button.Background>
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="Images/IconError_48x48.png" Width="20" Height="20"/>
+                        <TextBlock Text="취소" FontSize="20" VerticalAlignment="Center" />
+                    </StackPanel>
+                </Button>
+            </Grid>
+        </dxlc:GroupBox>
+    </Grid>
+</Window>
+
