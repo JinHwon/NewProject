@@ -11,6 +11,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CommonLib", "..\CommonLib\C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleCOM", "..\ModuleQLC\ModuleCOM.csproj", "{EF8A8676-FAAA-4899-B188-C4CCD291FFA3}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VersionControl", "..\VersionControl\VersionControl.csproj", "{1BEA7B77-CAFE-4AE6-8CC9-47925385C9DA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModuleETC", "..\ModuleETC\ModuleETC.csproj", "{7202A4DE-5D36-4F49-9549-92799CF8EBF1}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "ClanT2", "ClanT2\ClanT2.vdproj", "{6DC8F3F2-3F11-4E5C-ACDC-84B38B00FFBD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +39,16 @@ Global
 		{EF8A8676-FAAA-4899-B188-C4CCD291FFA3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF8A8676-FAAA-4899-B188-C4CCD291FFA3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF8A8676-FAAA-4899-B188-C4CCD291FFA3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BEA7B77-CAFE-4AE6-8CC9-47925385C9DA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BEA7B77-CAFE-4AE6-8CC9-47925385C9DA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BEA7B77-CAFE-4AE6-8CC9-47925385C9DA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BEA7B77-CAFE-4AE6-8CC9-47925385C9DA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7202A4DE-5D36-4F49-9549-92799CF8EBF1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7202A4DE-5D36-4F49-9549-92799CF8EBF1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7202A4DE-5D36-4F49-9549-92799CF8EBF1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7202A4DE-5D36-4F49-9549-92799CF8EBF1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DC8F3F2-3F11-4E5C-ACDC-84B38B00FFBD}.Debug|Any CPU.ActiveCfg = Debug
+		{6DC8F3F2-3F11-4E5C-ACDC-84B38B00FFBD}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

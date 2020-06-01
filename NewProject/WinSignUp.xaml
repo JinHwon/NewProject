@@ -70,7 +70,7 @@
                 <TextBlock Text="종족" Grid.Row="6" Grid.Column="2" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 <ComboBox x:Name="cboTribe" Grid.Row="6" Grid.Column="3" Width="145" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 <TextBlock Text="이메일" Grid.Row="7" Grid.Column="2" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
-                <TextBox x:Name="tbxUserEmail" Grid.Row="7" Grid.Column="3" Width="145" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                <TextBox x:Name="tbxUserEmail" Grid.Row="7" Grid.Column="3" Grid.ColumnSpan="2" Width="295" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 <TextBlock Text="연락처" Grid.Row="8" Grid.Column="2" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 <TextBox x:Name="tbxUserMobile" Grid.Row="8" Grid.Column="3" Width="145" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center"/>
                 <TextBlock Text=" - 제외" Grid.Row="8" Grid.Column="4" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Left"/>

@@ -12,7 +12,7 @@
         xmlns:dxwuin="http://schemas.devexpress.com/winfx/2008/xaml/windowsui/navigation"
         xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
         xmlns:base="clr-namespace:BasicAssembly;assembly=BasicAssembly"
-        Title="MainWindow" Width="1200" Height="900" WindowState="Maximized" Loaded="OnLoad" KeyDown="OnKeyDown">
+        Title="MainWindow" Width="1200" Height="900" WindowState="Maximized" Loaded="OnLoad" KeyDown="OnKeyDown" Icon="T2.ico">
     <dxb:BarManager>
         <DockPanel>
             <dxr:RibbonControl DockPanel.Dock="Top" RibbonStyle="Office2010" ToolbarShowMode="Hide">
@@ -33,7 +33,7 @@
                             <dxb:BarButtonItem Content="조회하기 Ctrl+R" LargeGlyph="{dx:DXImage Images/Zoom/Zoom_32x32.png}" ItemClick="ExecuteSelect" ToolTip="데이타를 조회"/>
                             <!-- File > Save     저장 -->
                             <dxb:BarButtonItem Content="저장하기 Ctrl+S" LargeGlyph="{dx:DXImage Images/Save/Save_32x32.png}" ItemClick="ExecuteSave" ToolTip="변경된 데이타를 저장"/>
-                            <!-- File > Delete   삭제 -->
+                            <dxb:BarButtonItem Content="삭제하기 Ctrl+D" LargeGlyph="{dx:DXImage Images/Edit/Delete_32x32.png}" ItemClick="ExecuteDelete" ToolTip="선택된 데이타를 삭제"/>
                             <dxb:BarItemSeparator/>
                             <!-- File > Excel    Excel -->
                             <dxb:BarButtonItem Content="엑셀저장 Ctrl+E" LargeGlyph="{dx:DXImage Images/Export/ExportToXLSX_32x32.png}" ItemClick="ExecuteExcelDownload" ToolTip="선택된 그리드를 엑셀로 저장"/>
@@ -109,8 +109,73 @@
                             </Style>
                         </dxdo:DocumentGroup.ItemStyle>
                     </dxdo:DocumentGroup>
+                    
                 </dxdo:LayoutGroup>
 
+                <dxdo:DockLayoutManager.FloatGroups>
+                    <!--Create a FloatGroup containing two panels-->
+                    <dxdo:FloatGroup x:Name="fgMessages" FloatSize="600,250" FloatLocation="413,563"
+                                     Visibility="Hidden">
+                        <dxdo:LayoutPanel x:Name="pnlMessages" Caption="메시지 제목"
+                                     AllowMinimize="False"
+                                     AllowMaximize="False"
+                                     AllowSizing="False"
+                                     AllowDock="False"
+                                     ShowCloseButton="False"
+                                     MouseDown="MessagesPanel_MouseDown"
+                                     Focusable="True"
+                                     LostFocus="MessagesPanel_LostFocus">
+                            <Grid Margin="10">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="80"/>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="0*"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*"/>
+                                    <RowDefinition Height="36"/>
+                                </Grid.RowDefinitions>
+                                <Image x:Name="msgIcon" Grid.Column="0" Grid.Row="0" Source="Images/IconOK_48x48.png"
+                                       VerticalAlignment="Top" Width="48" Height="48"
+                                       Margin="0,10"/>
+                                <TextBlock x:Name="msgContent" Grid.Column="1" Grid.Row="0" Text="메시지."
+                                           HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"
+                                           Margin="10,0" FontSize="14"/>
+                                <Button x:Name="messageOK" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top"
+                                        Height="32" Width="100" FontWeight="Bold" Margin="5,0" Click="MessageOK_Clicked">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="Images/ActiveRents_32x32.png" Width="24" Height="24"/>
+                                        <TextBlock Text=" 확인" VerticalAlignment="Center" FontSize="14"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button x:Name="messageYes" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top"
+                                        Height="32" Width="100" FontWeight="Bold" Margin="115,0" Click="MessageYes_Clicked">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="Images/ActiveRents_32x32.png" Width="24" Height="24"/>
+                                        <TextBlock Text="  O" VerticalAlignment="Center" FontSize="14"/>
+                                    </StackPanel>
+                                </Button>
+                                <Button x:Name="messageNo" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top"
+                                        Height="32" Width="100" FontWeight="Bold" Margin="5,0" Click="MessageNo_Clicked">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="Images/Close_32x32.png" Width="24" Height="24"/>
+                                        <TextBlock Text=" X" VerticalAlignment="Center" FontSize="14"/>
+                                    </StackPanel>
+                                </Button>
+
+                                <Button x:Name="messageCan" Grid.Column="1" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Top"
+                                        Height="32" Width="100" FontWeight="Bold" Margin="5,0" Click="MessageNo_Clicked">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="Images/Close_32x32.png" Width="24" Height="24"/>
+                                        <TextBlock Text=" X" VerticalAlignment="Center" FontSize="14"/>
+                                    </StackPanel>
+                                </Button>
+                            </Grid>
+                        </dxdo:LayoutPanel>
+                    </dxdo:FloatGroup>
+                    <!--Create a FloatGroup containing one panel-->
+                </dxdo:DockLayoutManager.FloatGroups>
+                
             </dxdo:DockLayoutManager>
 
         </DockPanel>

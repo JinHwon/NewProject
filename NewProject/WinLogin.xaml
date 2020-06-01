@@ -10,7 +10,7 @@
         xmlns:local="clr-namespace:NewProject"
         xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui" x:Class="NewProject.WinLogin"
         mc:Ignorable="d"
-        Title="WinLogin" Height="480" Width="510" WindowStyle="None" MouseLeftButtonDown="MouseDrag" WindowStartupLocation="CenterScreen" Loaded="OnLoad">
+        Title="WinLogin" Height="480" Width="510" WindowStyle="None" MouseLeftButtonDown="MouseDrag" WindowStartupLocation="CenterScreen" Loaded="OnLoad" Icon="T2.ico">
     <DockPanel>
         <StackPanel DockPanel.Dock="Left" Width="60" Background="#FF010A01" Opacity="0.8">
             <Grid Margin="10,20,10,0" MouseDown="Setting_Clicked">

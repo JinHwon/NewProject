@@ -138,6 +138,14 @@ namespace NewProject
                     Constants.UserTribe = returnDT.Rows[0]["USER_TRIBE"].ToString();
 
                     regCtl.writeRegistry("USER_ID", Constants.loginID);
+
+                    sSql = "";
+                    sSql += " UPDATE TB_COM_USER";
+                    sSql += "    SET LAST_LOGIN = GETDATE()";
+                    sSql += "  WHERE USER_ID = '" + Constants.loginID + "'";
+
+                    string sResult = dbCon.execQueryUpdate(sSql);
+
                     this.DialogResult = true;
 
                     return;

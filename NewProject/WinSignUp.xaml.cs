@@ -190,8 +190,66 @@ namespace NewProject
                 }
                 else
                 {
-                    MessageBox.Show("회원가입완료! 로그인 해주세요", "회원가입완료", MessageBoxButton.OK, MessageBoxImage.Information);
-                    this.DialogResult = true;
+                    sSql = "";
+                    sSql += " INSERT INTO TB_STATUS";
+                    sSql += "  VALUES('" + tbxUserID.Text.Trim() + "'";
+                    sSql += "        ,'500'";
+                    sSql += "        ,'500'";
+                    sSql += "        ,'500'";
+                    sSql += "        ,'500'";
+                    sSql += "        ,'500'";
+                    sSql += "        ,'500'";
+                    sSql += "        ,'500'";
+                    sSql += "        ,'500'";
+                    sSql += "        ,GETDATE()";
+                    sSql += "        ,GETDATE()";
+                    sSql += "        )";
+
+                    sResult = dbCon.execQueryUpdate(sSql);
+
+                    if (sResult != "")
+                    {
+                        MessageBox.Show(sResult);
+                        return;
+                    }
+                    else
+                    {
+                        sSql = "";
+                        sSql += "   INSERT INTO TB_MINERAL";
+                        sSql += "    VALUES('" + tbxUserID.Text.Trim() + "'";
+                        sSql += "          ,500)";
+
+                        sResult = dbCon.execQueryUpdate(sSql);
+
+                        if (sResult != "")
+                        {
+                            MessageBox.Show(sResult);
+                            return;
+                        }
+                        else
+                        {
+                            sSql = "";
+                            sSql += " INSERT INTO TB_MINERAL_HIS";
+                            sSql += "  VALUES('" + tbxUserID.Text.Trim() + "'";
+                            sSql += "        ,500";
+                            sSql += "        ,'로그인 축하 보너스 500미네랄!'";
+                            sSql += "        ,GETDATE()";
+                            sSql += "         )";
+
+                            sResult = dbCon.execQueryUpdate(sSql);
+
+                            if (sResult != "")
+                            {
+                                MessageBox.Show(sResult);
+                                return;
+                            }
+                            else
+                            {
+                                MessageBox.Show("회원가입완료! 로그인 해주세요", "회원가입완료", MessageBoxButton.OK, MessageBoxImage.Information);
+                                this.DialogResult = true;
+                            }
+                        }
+                    }
                 }
 
             }
