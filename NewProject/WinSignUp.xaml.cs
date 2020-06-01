@@ -245,8 +245,39 @@ namespace NewProject
                             }
                             else
                             {
-                                MessageBox.Show("회원가입완료! 로그인 해주세요", "회원가입완료", MessageBoxButton.OK, MessageBoxImage.Information);
-                                this.DialogResult = true;
+                                sSql = "";
+                                sSql += " INSERT INTO TB_CAREER(USER_ID, CREATE_DATE)";
+                                sSql += "   VALUES('" + tbxUserID.Text.Trim() + "'";
+                                sSql += "          ,GETDATE())";
+
+                                sResult = dbCon.execQueryUpdate(sSql);
+
+                                if (sResult != "")
+                                {
+                                    MessageBox.Show(sResult);
+                                    return;
+                                }
+                                else
+                                {
+                                    sSql = "";
+                                    sSql += " INSERT INTO TB_CAREER_HIS(USER_ID, CREATE_DATE)";
+                                    sSql += "   VALUES('" + tbxUserID.Text.Trim() + "'";
+                                    sSql += "          ,GETDATE())";
+
+                                    sResult = dbCon.execQueryUpdate(sSql);
+
+                                    if (sResult != "")
+                                    {
+                                        MessageBox.Show(sResult);
+                                        return;
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("회원가입완료! 로그인 해주세요", "회원가입완료", MessageBoxButton.OK, MessageBoxImage.Information);
+                                        this.DialogResult = true;
+                                    }
+                                }
+
                             }
                         }
                     }
