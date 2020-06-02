@@ -431,5 +431,14 @@
   <ItemGroup>
     <Resource Include="T2.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\empty.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\GOLDCUP.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\단추.PNG" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
