@@ -122,7 +122,7 @@ namespace NewProject
             try
             {
                 string sSql = "";
-                sSql += " SELECT USER_ID, USER_T2, USER_DUTY, USER_TRIBE";
+                sSql += " SELECT USER_ID, USER_T2, USER_DUTY, USER_TRIBE, ACTIVATED";
                 sSql += "   FROM tb_com_user";
                 sSql += "  WHERE USER_ID = '" + txtUserID.Text.Trim() + "'";
                 sSql += "    AND USER_PW = '" + txtPWD.Password.Trim() + "'";
@@ -132,22 +132,32 @@ namespace NewProject
                 //for (int iLoop = 0; iLoop < returnDT.Rows.Count; ++iLoop)
                 if (returnDT.Rows.Count > 0)
                 {
-                    Constants.loginID = returnDT.Rows[0]["USER_ID"].ToString();
-                    Constants.loginUserName = returnDT.Rows[0]["USER_T2"].ToString();
-                    Constants.loginUserDuty = returnDT.Rows[0]["USER_DUTY"].ToString();
-                    Constants.UserTribe = returnDT.Rows[0]["USER_TRIBE"].ToString();
+                    if (returnDT.Rows[0]["ACTIVATED"].ToString() == "N")
+                    {
+                        string msg = "사용이 거부된 아이디입니다. \r\n\r\n스탭에게 문의하세요. ";
 
-                    regCtl.writeRegistry("USER_ID", Constants.loginID);
+                        MessageBox.Show(msg, "Login 실패", MessageBoxButton.OK, MessageBoxImage.Error);
+                        txtUserID.SelectAll();
+                        txtUserID.Focus();
+                    }
+                    else
+                    {
+                        Constants.loginID = returnDT.Rows[0]["USER_ID"].ToString();
+                        Constants.loginUserName = returnDT.Rows[0]["USER_T2"].ToString();
+                        Constants.loginUserDuty = returnDT.Rows[0]["USER_DUTY"].ToString();
+                        Constants.UserTribe = returnDT.Rows[0]["USER_TRIBE"].ToString();
 
-                    sSql = "";
-                    sSql += " UPDATE TB_COM_USER";
-                    sSql += "    SET LAST_LOGIN = GETDATE()";
-                    sSql += "  WHERE USER_ID = '" + Constants.loginID + "'";
+                        regCtl.writeRegistry("USER_ID", Constants.loginID);
 
-                    string sResult = dbCon.execQueryUpdate(sSql);
+                        sSql = "";
+                        sSql += " UPDATE TB_COM_USER";
+                        sSql += "    SET LAST_LOGIN = GETDATE()";
+                        sSql += "  WHERE USER_ID = '" + Constants.loginID + "'";
 
-                    this.DialogResult = true;
+                        string sResult = dbCon.execQueryUpdate(sSql);
 
+                        this.DialogResult = true;
+                    }
                     return;
                 }
                 else
